@@ -1,1 +1,1 @@
-# Malgen
+# MalGen
