@@ -21,8 +21,12 @@
 # If say, the user wants to utilize XOR, they could provide something like "xor help" to list possible alterations to make to the snippet/module. So like "xor key 9" to make the key 9 or something, or "aes key KEY_HERE" if the user wants to provide their own encryption/decryption key.
 
 import cmd
+#import readline
+from modules import encryption
 from modules.encryption import EncryptionModule
-#from modules.obfuscation import ObfuscationModule
+from modules.obfuscation import ObfuscationModule
+from snippets.encryption_snippets import *
+from snippets.obfuscation_snippets import *
 
 colors = ["\033[91m", "\033[92m", "\033[93m", "\033[94m", "\033[95m", "\033[96m", "\033[97m"]
 
@@ -42,13 +46,10 @@ ascii_art = f"""{colors[0]}
 
 class MalgenShell(cmd.Cmd):
     prompt = "malgen> " # sets custom prompt
-    shellcode = "123" # the shellcode to be encrypted.
-
 
     def do_encryption(self, arg):
         """Enter encryption configuration mode."""
-        encryption_module = EncryptionModule()
-        encryption_module.cmdloop() # starts the encryption module prompt.
+        EncryptionModule().cmdloop() # starts the encryption module prompt.
 
     def do_obfuscation(self, arg):
         """Enter obfuscation configuration mode."""
@@ -56,7 +57,8 @@ class MalgenShell(cmd.Cmd):
 
     def do_generate(self, arg):
         """Generate the final executable or source code."""
-        snippet_encryption = self.do_encryption()
+        snippet_encryption = get_encryption_method(encryption.encryption_method, encryption.shellcode, encryption.key, encryption.iv) # get the encryption snippet
+        print(snippet_encryption)
 
     def do_exit(self, arg):
         """Exit the interactive shell."""
