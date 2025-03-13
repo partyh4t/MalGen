@@ -57,7 +57,7 @@ class MalgenShell(cmd.Cmd):
 
     def do_generate(self, arg):
         """Generate the final executable or source code."""
-        snippet_encryption = get_encryption_method(encryption.encryption_method, encryption.shellcode, encryption.key, encryption.iv) # get the encryption snippet
+        snippet_encryption = get_encryption_method(encryption.encryption_method, encryption.shellcode, encryption.use_key, encryption.iv) # get the encryption snippet
         print(snippet_encryption)
 
     def do_exit(self, arg):
