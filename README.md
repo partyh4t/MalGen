@@ -14,6 +14,7 @@ Once the repository has been cloned, you can simply run `python3 malgen.py` to a
 
 ### Usage
 Once within the prompt, running `help` or `?` will bring up a help menu, showcasing the various commands and modules available to you.
+
 ![image](https://github.com/user-attachments/assets/97bf3f4d-cc50-4b82-a4b0-8380f28bbcc0)
 
 The program is designed to be used in the following way:
