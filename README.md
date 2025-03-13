@@ -17,11 +17,16 @@ Once within the prompt, running `help` or `?` will bring up a help menu, showcas
 
 ![image](https://github.com/user-attachments/assets/97bf3f4d-cc50-4b82-a4b0-8380f28bbcc0)
 
+
 The program is designed to be used in the following way:
   1. Load a file containing shellcode into the program with `malgen> shellcode PATH/TO/SHELLCODE_FILE.bin`.(Adding shellcode generation via msfvenom within the program is something I have planned)
   2. Select and configure various techniques like Encryption, Obfuscation, Payload Placement, etc by entering the name of the technique you want to configure, this will alter the prompt and enter you into a different section specifically for configuring that technique. e.g. `malgen> encryption` -> `malgen::encryption>`.
   3. Each module/technique has specific settings you can configure and select, like aes, rc4, or xor, within the encryption module as an example. Selecting a specific technique can be done using `technique use`. So if for instance you want to specify your own xor key and then tell the program to use xor in the final binary, we could issue `xor key 01010101` alongside `xor use`. The order in which you run these commands does not matter.
   4. Once the desired modules and techniques have been selected and configured, issuing `malgen> generate` will combine the corresponding technique snippets into a final .c file, which is then compiled using `gcc`.
 
+### Notes
+This tool is still very early in development, and is lacking most major functionality. Especially as this is my first actual big project, expect the source code to be vomit-inducing and contain plenty of bugs.
+
+At this point in time, the program does not generate a final compiled binary, but instead prints out the snippets with the configurations applied to the terminal. This way the tool can atleast still provide some use for the time being.
 
 More module/technique specific documentation coming soon.
