@@ -45,7 +45,7 @@ Options:
     # AES encryption
     def do_aes(self, arg):
         """\nConfigure AES encryption. - Usage: aes <option> <arg>\n
-Options: 
+Options:
     key <key> - Set the encryption key.
     iv <iv> - Set the initialization vector.
     encrypt <data> - Encrypt the provided data.
@@ -64,7 +64,7 @@ Options:
             if arg1 == "key":
                 global aes_key
                 aes_key = arg2
-                print(f"\nEncryption key set to: {xor_key}\n")
+                print(f"\nEncryption key set to: {aes_key}\n")
 
     # RC4 encryption
     def do_rc4(self, arg):
